@@ -5,10 +5,7 @@
     <div><span>title: </span>{{item.title}}</div>
     <div><span>text: </span>{{item.text}}</div>
     <div><span>due: </span>{{item.due}}</div>
-    <div>
-      <label>title:
-        <input [(ngModel)]="item.title" />
-      </label>
-    </div>
-  
+    
+    <div> <a routerLink="/editor/{{item.id}}">edit</a></div>
+    <a routerLink="/list">back</a>
   </div>

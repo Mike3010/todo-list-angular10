@@ -29,4 +29,8 @@ export class ItemService {
     }
     return of(null);
   }
+
+  addItem(item: Item) {
+    this.items.push(item);
+  }
 }
