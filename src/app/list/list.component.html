@@ -1,0 +1,6 @@
+<h2>To Do Items</h2>
+<ul class="list-group">
+  <li *ngFor="let item of items" class="list-group-item">
+    <span class="badge">{{item.id}}</span> <a routerLink="/item/{{item.id}}">Heroes{{item.title}}</a>
+  </li>
+</ul>
