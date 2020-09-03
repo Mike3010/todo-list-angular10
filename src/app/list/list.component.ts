@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../services/item.service';
 import { Item } from '../models/item';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-list',
@@ -11,10 +12,15 @@ export class ListComponent implements OnInit {
 
   items: Item[];
 
-  constructor(private itemService: ItemService) { }
+  constructor(private itemService: ItemService, private http: HttpClient,) { }
 
   ngOnInit(): void {
     this.getItems();
+
+    //dummy
+    this.http.get<any[]>('https://jsonplaceholder.typicode.com/todos/').subscribe(result => {
+      console.log(result);
+    })
   }
 
   getItems() {

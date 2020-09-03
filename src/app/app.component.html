@@ -17,13 +17,13 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      <div style="margin-right: 10px; color: #fff;">Hello {{username}}</div>
+      <button class="btn btn-secondary my-2 my-sm-0" (click)="logout()" type="submit">Logout</button>
     </form>
   </div>
 </nav>
 
-<main role="main" class="container">
+<main role="main" class="container" *ngIf="authenticated">
 
   <router-outlet></router-outlet>
 

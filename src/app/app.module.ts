@@ -8,6 +8,9 @@ import { ListComponent } from './list/list.component';
 import { ItemComponent } from './item/item.component';
 import { ItemEditorComponent } from './item-editor/item-editor.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { OAuthModule } from 'angular-oauth2-oidc';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +21,14 @@ import { ItemEditorComponent } from './item-editor/item-editor.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    OAuthModule.forRoot({
+      resourceServer: {
+        sendAccessToken: true,
+        allowedUrls: ['https://jsonplaceholder.typicode.com/']
+      }
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
