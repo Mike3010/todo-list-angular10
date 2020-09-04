@@ -17,10 +17,7 @@
     </div>
   <div><span>due: </span>{{item.due}}</div>
 
-  <div *ngIf="item.id == 0">
-      <button (click)="addItem(item)">add</button>
-  </div>
   <div>
-    <a routerLink="/list">back</a>
-</div>
+      <button (click)="saveItem(item)">save</button>
+  </div>
 </div>

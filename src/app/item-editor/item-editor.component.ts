@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../services/item.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Item } from '../models/item';
 import { ItemComponent } from '../item/item.component';
 
@@ -13,9 +13,16 @@ export class ItemEditorComponent implements OnInit {
 
   item: Item;
 
-  constructor(private itemService: ItemService, private route: ActivatedRoute,) { }
+  constructor(private itemService: ItemService, private route: ActivatedRoute, private router: Router) { }
 
-  addItem(item: Item) {
+  saveItem(item: Item) {
+    if(item.id == 0) {
+      this.addItem(item);
+    }
+    this.router.navigate(['/list']);
+  }
+  
+  private addItem(item: Item) {
     this.itemService.getItems().subscribe(items => {
       item.id = items.length+1;
       this.itemService.addItem(item);
