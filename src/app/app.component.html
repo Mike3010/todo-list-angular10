@@ -23,11 +23,11 @@
   </div>
 </nav>
 
-<main role="main" class="container" *ngIf="authenticated">
+<main role="main" class="container">
 
-  <router-outlet></router-outlet>
-
+  <router-outlet *ngIf="authenticated"></router-outlet>
 </main><!-- /.container -->
+
 
 
 

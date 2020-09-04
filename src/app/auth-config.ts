@@ -5,11 +5,12 @@ import { AuthConfig } from 'angular-oauth2-oidc';
   issuer: 'https://accounts.google.com',
 
   // URL of the SPA to redirect the user to after login
-  redirectUri: window.location.origin,
+  redirectUri: window.location.origin+'/list',
 
-  // URL of the SPA to redirect the user after silent refresh
-  //silentRefreshRedirectUri: window.location.origin + '/silent-refresh.html',
-
+  //either comment both in or out!
+  responseType: 'code',
+  dummyClientSecret: 'BQvZaj4P0NP3iX-2RD83t8_U',
+  
   // The SPA's id. The SPA is registerd with this id at the auth-server
   clientId: '960377419319-7gagfjte83174qvhp8boefb7l2i0otv0.apps.googleusercontent.com',
 
@@ -20,4 +21,4 @@ import { AuthConfig } from 'angular-oauth2-oidc';
   scope: 'openid profile email',
 
   showDebugInformation: true,
-  };
+};
