@@ -30,14 +30,14 @@ export class ItemEditorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
     
-    if(id != 0) {
+    if(id != "") {
       this.itemService.getItem(id).subscribe(item => {
         this.item = item;
       });
     } else {
-      this.item = { id: 0, title: 'new', text: '', due: new Date()}
+      this.item = { id: null, title: 'new', text: '', order: 0}
     }    
   }
 }

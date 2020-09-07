@@ -28,7 +28,7 @@ import { OAuthModule } from 'angular-oauth2-oidc';
       resourceServer: {
         //send id token!?
         sendAccessToken: false,
-        allowedUrls: ['https://jsonplaceholder.typicode.com/']
+        allowedUrls: ['http://localhost:8080/']
       }
     }),
   ],

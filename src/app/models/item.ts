@@ -2,5 +2,5 @@ export interface Item {
     id: number,
     title: string,
     text: string,
-    due: Date
+    order: number
 }

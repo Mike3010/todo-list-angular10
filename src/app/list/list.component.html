@@ -1,7 +1,8 @@
 <h2>To Do Items</h2>
 <ul class="list-group">
   <li *ngFor="let item of items" class="list-group-item">
-    <span class="badge">{{item.id}}</span> <a routerLink="/item/{{item.id}}">Heroes{{item.title}}</a>
+    <span class="badge">{{item.id}}</span> <a routerLink="/item/{{item.id}}">{{item.title}}</a>
+    <div>{{item.text}}</div>
   </li>
 </ul>
 <a routerLink="/editor">add item</a>

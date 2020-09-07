@@ -19,7 +19,7 @@ export class ItemComponent implements OnInit {
   }
   
   getItem() {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
     this.itemService.getItem(id).subscribe(item => {
       this.item = item;
     });

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Item } from '../models/item'
 import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,26 +9,23 @@ import { Observable, of } from 'rxjs';
 export class ItemService {
 
   private items: Item[] = [
-    { id: 1, title: 'Test1', text: 'Text1', due: new Date(2020, 1, 1)},
-    { id: 2, title: 'Test2', text: 'Text2', due: new Date(2020, 1, 2)},
-    { id: 3, title: 'Test3', text: 'Text3', due: new Date(2020, 1, 3)},
-    { id: 4, title: 'Test4', text: 'Text4', due: new Date(2020, 1, 4)},
-    { id: 5, title: 'Test5', text: 'Text5', due: new Date(2020, 1, 5)},
+    { id: 1, title: 'Test1', text: 'Text1', order: 1},
+    { id: 2, title: 'Test2', text: 'Text2', order: 2},
+    { id: 3, title: 'Test3', text: 'Text3', order: 3},
+    { id: 4, title: 'Test4', text: 'Text4', order: 4},
+    { id: 5, title: 'Test5', text: 'Text5', order: 5},
   ];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getItems(): Observable<Item[]> {
-    return of(this.items);
+
+    return this.http.get<Item[]>('http://localhost:8080/todo/')
   }
 
-  getItem(id: number): Observable<Item> {
-    for(let i=0; i<this.items.length; i++) {
-      if(this.items[i].id == id) {
-        return of(this.items[i]);
-      }
-    }
-    return of(null);
+  getItem(id: string): Observable<Item> {
+    
+    return this.http.get<Item>('http://localhost:8080/todo/'+id);
   }
 
   addItem(item: Item) {

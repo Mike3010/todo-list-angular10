@@ -12,7 +12,7 @@ export class ListComponent implements OnInit {
 
   items: Item[];
 
-  constructor(private itemService: ItemService, private http: HttpClient,) { }
+  constructor(private itemService: ItemService, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.getItems();
