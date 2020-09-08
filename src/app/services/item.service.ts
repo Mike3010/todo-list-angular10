@@ -39,4 +39,8 @@ export class ItemService {
   addItem(item: Item) {
     this.items.push(item);
   }
+
+  delete(item: Item) {
+    return this.http.delete<any>('http://localhost:8080/todo/'+item.id);
+  }
 }

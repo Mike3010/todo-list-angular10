@@ -4,6 +4,7 @@
     <span class="badge">{{item.id}}</span> <a routerLink="/item/{{item.id}}">{{item.title}}</a>
     <div>{{item.text}}</div>
     <div> <a routerLink="/editor/{{item.id}}">edit</a></div>
+    <div><button (click)="delete(item)">delete</button></div>
   </li>
 </ul>
 <a routerLink="/editor">add item</a>

@@ -24,4 +24,11 @@ export class ListComponent implements OnInit {
     })
   }
 
+  delete(item: Item) {
+    this.itemService.delete(item).subscribe(res => {
+      console.log("delete:", res);
+      this.getItems();
+    });
+  }
+
 }
