@@ -16,11 +16,6 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getItems();
-
-    //dummy
-    this.http.get<any[]>('https://jsonplaceholder.typicode.com/todos/').subscribe(result => {
-      console.log(result);
-    })
   }
 
   getItems() {

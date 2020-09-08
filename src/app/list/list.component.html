@@ -3,6 +3,7 @@
   <li *ngFor="let item of items" class="list-group-item">
     <span class="badge">{{item.id}}</span> <a routerLink="/item/{{item.id}}">{{item.title}}</a>
     <div>{{item.text}}</div>
+    <div> <a routerLink="/editor/{{item.id}}">edit</a></div>
   </li>
 </ul>
 <a routerLink="/editor">add item</a>

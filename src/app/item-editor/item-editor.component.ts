@@ -16,23 +16,29 @@ export class ItemEditorComponent implements OnInit {
   constructor(private itemService: ItemService, private route: ActivatedRoute, private router: Router) { }
 
   saveItem(item: Item) {
-    if(item.id == 0) {
+    if(item.id == null) {
       this.addItem(item);
+    } else {
+      this.updateItem(item);
     }
-    this.router.navigate(['/list']);
   }
   
   private addItem(item: Item) {
-    this.itemService.getItems().subscribe(items => {
-      item.id = items.length+1;
-      this.itemService.addItem(item);
+    this.itemService.save(item).subscribe(i => {
+      this.router.navigate(['/list']);
+    });
+  }
+
+  private updateItem(item: Item) {
+    this.itemService.update(item).subscribe(i => {
+      this.router.navigate(['/list']);
     });
   }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     
-    if(id != "") {
+    if(id != null) {
       this.itemService.getItem(id).subscribe(item => {
         this.item = item;
       });

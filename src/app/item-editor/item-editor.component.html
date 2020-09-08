@@ -15,8 +15,11 @@
         <input [(ngModel)]="item.text" />
         </label>
     </div>
-  <div><span>due: </span>{{item.due}}</div>
-
+    <div>
+        <label>order:
+        <input [(ngModel)]="item.order" />
+        </label>
+    </div>
   <div>
       <button (click)="saveItem(item)">save</button>
   </div>
