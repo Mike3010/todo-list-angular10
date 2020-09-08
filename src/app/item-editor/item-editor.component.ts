@@ -43,7 +43,7 @@ export class ItemEditorComponent implements OnInit {
         this.item = item;
       });
     } else {
-      this.item = { id: null, title: 'new', text: '', order: 0}
+      this.item = { id: null, title: '', text: '', sort: null}
     }    
   }
 }
